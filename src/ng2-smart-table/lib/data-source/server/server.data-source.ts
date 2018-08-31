@@ -76,6 +76,9 @@ export class ServerDataSource extends LocalDataSource {
 
   protected createRequesParams(): HttpParams {
     let httpParams = new HttpParams();
+    if ( this.conf.httpParams ) {
+      httpParams = this.conf.httpParams;
+    }
 
     httpParams = this.addSortRequestParams(httpParams);
     httpParams = this.addFilterRequestParams(httpParams);
